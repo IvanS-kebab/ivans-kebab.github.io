@@ -1,7 +1,8 @@
 
 <head>
-     <title>tuntematon</title>
+        <title>Tuntematon</title>
     <link rel="shortcut icon" href="Nopng.png" type="image/x-icon">
+
 <style>
     body{
         background-image: url("Nopng.png");
@@ -45,13 +46,49 @@
             color: rgb(255, 255, 255);
           
         }
-       
+        #result
+        {
+            color: #fdfdfd;
+        }
+        
+     
 
-      
-    
 
 </style>
 <link rel="stylesheet" href="../style.css">
+<script>
+function calc() {
+  const a = document.getElementById('val1').value;
+  const act = document.getElementById('operator').value;
+  var result;
+  console.log(act);
+  if(act == 'prikol') {
+    console.log('Числа:', a);
+    result = `окак ${a}`;
+  document.getElementById('result').innerHTML = result;
+    console.log(result);
+  }
+   console.log(act);
+    console.log('Числа:', a)
+   if (act == 'bebebe') {
+    result = a * 393939 ;
+  document.getElementById('result').innerHTML = result;
+  console.log(result);
+  }
+}
+function showHidePar(mode) {
+  const elems = document.querySelectorAll("p");
+  for (let i = 0; i < elems.length; i += 1)
+    elems[i].style.display = mode;
+}
+function changeDirection(checkBox) {
+  let flexContainer = document.getElementById('flexContainer');
+  if (checkBox.checked)
+    flexContainer.style.flexDirection = 'column';
+  else
+    flexContainer.style.flexDirection = 'row';
+}
+</script>
 </head>
 <body>
     <menu>
@@ -62,8 +99,19 @@
     <li><a href="../noname/index.html">Неизвестно</a></li>
 </ul>      
 </menu>
-    
+     <form>
+    <input type="text" id="val1" size="10">
+ 
+    <select id="operator">
+    <option value="prikol"> prikol </option>
+    <option value="bebebe"> bebebe </option>
+    </select>
+    <button type="button" onclick="calc()">опа</button>
+  </form>
+     <span style="color: #fdfdfd;">Что выдам?:</span>
+    <span id="result"></span>
     <div class="page">
+
         
       
 
@@ -82,6 +130,6 @@
          <div class="page2">
          <img src="" alt="">
        </div> -->
-
+<footer></footer>
 </body>
 </head>
