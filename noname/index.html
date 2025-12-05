@@ -36,7 +36,7 @@
  
         p {
             max-width: 700px;
-               font-size: 2em;
+               font-size: 1.5em;
         }
        
         img {
@@ -58,20 +58,39 @@
 </style>
 <link rel="stylesheet" href="../style.css">
 <script>
+function encryptPassword(password) {
+    let encryptedPassword = "";
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    for (let i = 0; i < password.length; i++) {
+        encryptedPassword += alphabet[i % alphabet.length] + "2" + password[i];
+    }
+    return encryptedPassword.split("").reverse().join("");
+}
+
+function decryptPassword(encryptedPassword) {
+    let decryptedPassword = "";
+    let reversedEncryptedPassword = encryptedPassword.split("").reverse().join("");
+    for (let i = 0; i < reversedEncryptedPassword.length; i += 3) {
+        decryptedPassword += reversedEncryptedPassword[i + 2];
+    }
+    return decryptedPassword;
+}
 function calc() {
-  const a = document.getElementById('val1').value;
-  const act = document.getElementById('operator').value;
+  // const a = document.getElementById('val1').value;
+  const act = document.getElementById('val1').value;
   var result;
   console.log(act);
-  if(act == 'prikol') {
-    console.log('Числа:', a);
-    result = `окак ${a}`;
-
+  if(act == decryptPassword("l2fo2ek2di2cr2bp2a")) {
+    // console.log('Числа:', a);
+    // result = `окак ${a}`;
+    window.open('../NuMed/Untitled-1.html')
+  // document.getElementById('result').innerHTML = result;
+  //   console.log(result);
+  } else {
+    result = `окак ${act}`;
   document.getElementById('result').innerHTML = result;
-    console.log(result);
-  }
+   }
    console.log(act);
-    console.log('Числа:', a)
    if (act == 'bebebe') {
     result = a * 393939 ;
   document.getElementById('result').innerHTML = result;
@@ -103,11 +122,6 @@ function changeDirection(checkBox) {
 </menu>
      <form>
     <input type="text" id="val1" size="10">
- 
-    <select id="operator">
-    <option value="prikol"> prikol </option>
-    <option value="bebebe"> bebebe </option>
-    </select>
     <button type="button" onclick="calc()">опа</button>
   </form>
      <span style="color: #fdfdfd;">Что выдам?:</span>
